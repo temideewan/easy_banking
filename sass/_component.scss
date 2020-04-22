@@ -1,0 +1,81 @@
+.navigation {
+	font-size: 1.5rem;
+	font-weight: 300;
+
+	&__list {
+		display: flex;
+		list-style-type: none;
+		&-item {
+			&:not(last-child) {
+				margin-right: 3rem;
+				position: relative;
+			}
+			&::after {
+				content: '';
+				position: absolute;
+				bottom: -21px;
+				left: 0;
+				height: 2px;
+				width: 90%;
+				transform-origin: left;
+				transform: scaleX(0);
+				background-color: $color-primary-green;
+				transition: all 0.3s ease;
+			}
+		}
+		&-item:hover::after {
+			transform: scaleX(1);
+		}
+
+		&-link:link,
+		&-link:visited {
+			color: $color-grey-blue;
+			text-decoration: none;
+		}
+		&-link:hover,
+		&-link:active {
+			color: $color-primary-blue;
+		}
+	}
+}
+
+.cta {
+	font-size: 1.4rem;
+	color: $color-white;
+	border: none;
+	outline: none;
+	padding: 0.8rem 2.4rem;
+	border-radius: 2rem;
+	background-image: linear-gradient(
+		to right,
+		$color-primary-green,
+		$color-primary-lightblue
+	);
+	&:hover {
+		cursor: pointer;
+		background-image: linear-gradient(
+			to right,
+			rgba($color-primary-green, 0.5),
+			rgba($color-primary-lightblue, 0.5)
+		);
+	}
+}
+
+.hero {
+	// flex: 0 0 50%;
+	position: relative;
+	&__info {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+	}
+	&__img {
+		background-image: url(../images/bg-intro-desktop.svg);
+		background-size: 120%;
+		background-position: top;
+		position: absolute;
+		top: -110px;
+		right: -130px;
+	}
+}

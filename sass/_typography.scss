@@ -1,0 +1,16 @@
+.hero__info {
+	&-heading {
+		font-size: 7rem;
+		font-weight: 300;
+		box-decoration-break: clone;
+		width: 41%;
+		margin-bottom: 3.7rem;
+	}
+	&-para {
+		color: $color-grey-blue;
+		box-decoration-break: clone;
+		width: 40%;
+		font-size: 2rem;
+		margin-bottom: 5rem;
+	}
+}
