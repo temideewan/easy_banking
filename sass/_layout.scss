@@ -7,6 +7,7 @@
 		)
 		[center-end] minmax(4rem, 1fr) [full-end];
 	grid-template-rows: 6rem calc(100vh - 6rem);
+	overflow: hidden;
 }
 .navigation {
 	background: $color-white;
@@ -17,11 +18,11 @@
 	align-items: center;
 	justify-content: space-between;
 	position: relative;
-	z-index: 100;
+	z-index: 1000;
 }
 
 .hero {
-	background-color: aliceblue;
+	background-color: $color-grey-light;
 	grid-column: 1 / -1;
 	grid-row: 2 / 3;
 
@@ -29,23 +30,90 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	overflow: hidden;
 }
 
 .testimonial {
-	background-color: green;
-	grid-column: center-start 1 / center-end;
+	background-color: $color-grey;
+	grid-column: 1/ -1;
 	grid-row: 3 / 4;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 8rem 12rem;
 }
 
 .articles {
-	background-color: forestgreen;
-	grid-column: center-start 1 / center-end;
+	background-color: $color-grey-light;
+	grid-column: 1 / -1;
 	grid-row: 4 / 5;
+
+	display: flex;
+	flex-direction: column;
+	padding: 8rem 12rem;
+}
+
+.article {
+	&__heading {
+		margin-bottom: 5rem;
+	}
+
+	&__content {
+		width: 100%;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 3rem;
+	}
 }
 
 .footer {
-	background-color: black;
+	background-color: $color-primary-blue;
 	grid-column: full-start / full-end;
 	grid-row: 5 / 6;
+
+	padding: 4rem 12rem 2rem;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+	column-gap: 5rem;
+	align-items: center;
+	&__logos {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		& > *:not(last-child) {
+			margin-bottom: 3.8rem;
+			margin-top: 2.8rem;
+		}
+		&--socials {
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+		}
+	}
+	&__links {
+		display: flex;
+		flex-wrap: wrap;
+		width: 100%;
+		align-items: center;
+		& > * {
+			flex: 0 0 50%;
+			margin-bottom: 1.8rem;
+		}
+	}
+	&__cta {
+		justify-self: end;
+
+		display: flex;
+
+		flex-direction: column;
+		align-items: flex-end;
+		justify-content: center;
+		& > * {
+			margin-bottom: 4.2rem;
+		}
+	}
+	&__copyright {
+		font-size: 1.5rem;
+		font-weight: 300;
+		color: $color-grey-blue;
+		transform: translateY(1rem);
+	}
 }

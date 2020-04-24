@@ -2,6 +2,7 @@
 	&-heading {
 		font-size: 7rem;
 		font-weight: 300;
+		color: $color-primary-blue;
 		box-decoration-break: clone;
 		width: 41%;
 		margin-bottom: 3.7rem;
@@ -12,5 +13,73 @@
 		width: 40%;
 		font-size: 2rem;
 		margin-bottom: 5rem;
+	}
+}
+
+.testimonial {
+	&__header {
+		&--heading {
+			color: $color-primary-blue;
+			font-size: 4.7rem;
+			font-weight: 300;
+			line-height: 1.6;
+		}
+		&--para {
+			color: $color-grey-blue;
+		}
+	}
+	&__content {
+		&-heading {
+			font-size: 2.2rem;
+			color: $color-primary-blue;
+		}
+		&-para {
+			font-size: 1.6rem;
+			color: $color-grey-blue;
+		}
+	}
+}
+
+.article {
+	&__heading {
+		font-size: 4.7rem;
+		font-weight: 300;
+		color: $color-primary-blue;
+	}
+	&__content {
+		&-caption {
+			font-size: 1.3rem;
+			font-weight: 300;
+			color: $color-grey-blue;
+			margin-bottom: 1.5rem;
+		}
+		&-heading {
+			color: $color-primary-blue;
+			font-size: 2.6rem;
+			&:hover {
+				color: $color-primary-green;
+				cursor: pointer;
+			}
+		}
+		&-para {
+			color: $color-grey-blue;
+			font-size: 1.7rem;
+		}
+	}
+}
+
+.footer__links {
+	list-style-type: none;
+	li {
+		font-size: 1.6rem;
+		a:link,
+		a:visited {
+			text-decoration: none;
+			color: $color-grey-light;
+		}
+		a:hover,
+		a:active {
+			color: $color-primary-green;
+		}
 	}
 }
