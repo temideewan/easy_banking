@@ -303,6 +303,12 @@
 			// 		if (callNow) func.apply(context, args);
 			// 	};
 			// }
+
+			/*
+			Navigation animation
+			*/
+
+			// Debounce function to prevent lagging from scrolling events
 			function debounce(f, ms = 5) {
 				let isCooldown = false;
 
@@ -316,15 +322,16 @@
 					setTimeout(() => (isCooldown = false), ms);
 				};
 			}
+
+			// Select elements
 			const nav = document.querySelector('.navigation');
 			const hero = document.querySelector('.hero');
 			const brandImage = document.querySelector('.navigation__brand--image');
 
 			const navBox = hero.getBoundingClientRect();
-			console.log(navBox);
 
+			//Destructure off the boundary properties of the hero
 			const { y: topp, bottom: boxBottom } = navBox;
-			console.log(topp, boxBottom);
 
 			function handleScroll() {
 				// 1 determine the scroll of the page.
@@ -351,46 +358,23 @@
 				}
 			}
 
-			// function handleScroll() {
-			// 	const windowOffset = window.pageYOffset;
-			// 	const notScrolled = window.pageYOffset === 0;
-			// 	const enterAt = windowOffset > hero.clientHeight / 10 && !notScrolled;
-			// 	const heroPassed =
-			// 		windowOffset > hero.offsetTop + (hero.clientHeight - 20);
-
-			// 	brandImage.classList.remove('bolderImage');
-			// 	if (enterAt) {
-			// 		nav.classList.add('sticky');
-			// 		nav.classList.remove('inactive');
-			// 		brandImage.classList.add('bolderImage');
-
-			// 		setTimeout(() => {
-			// 			nav.classList.add('active');
-			// 		}, 300);
-			// 	} else {
-			// 		nav.classList.remove('sticky', 'active');
-			// 	}
-
-			// 	if (heroPassed) {
-			// 		brandImage.classList.remove('bolderImage');
-			// 		nav.classList.add('inactive');
-			// 	}
-			// }
-
 			window.addEventListener('scroll', debounce(handleScroll));
 
-			const arr = [];
-			function clipClip(e) {
-				const keyCode = e.keyCode || e.which;
+			/*
+			messing around with clipboard events	
+			*/
+			// const arr = [];
+			// function clipClip(e) {
+			// 	const keyCode = e.keyCode || e.which;
 
-				if (keyCode === 67 && e.ctrlKey === true) {
-					const selectedText = window.getSelection().toString();
-					arr.push(selectedText);
-				}
-				console.log(arr);
-			}
+			// 	if (keyCode === 67 && e.ctrlKey === true) {
+			// 		const selectedText = window.getSelection().toString();
+			// 		arr.push(selectedText);
+			// 	}
+			// 	console.log(arr);
+			// }
 
-			window.addEventListener('keydown', clipClip);
+			// window.addEventListener('keydown', clipClip);
 		</script>
 	</body>
 </html>
