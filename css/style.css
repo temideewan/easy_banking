@@ -180,8 +180,8 @@ body {
 .testimonial__content {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-  column-gap: 8rem;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  column-gap: 6.5rem;
   row-gap: 6rem; }
   .testimonial__content > * {
     display: grid;
@@ -221,18 +221,23 @@ body {
     margin-right: 1rem; }
 
 .footer__logos--socials-fb {
+  -webkit-mask-image: url(../images/icon-facebook.svg);
   mask: url(../images/icon-facebook.svg); }
 
 .footer__logos--socials-youtube {
+  -webkit-mask-image: url(../images/icon-youtube.svg);
   mask: url(../images/icon-youtube.svg); }
 
 .footer__logos--socials-twitter {
+  -webkit-mask-image: url(../images/icon-twitter.svg);
   mask: url(../images/icon-twitter.svg); }
 
 .footer__logos--socials-pinterest {
+  -webkit-mask-image: url(../images/icon-pinterest.svg);
   mask: url(../images/icon-pinterest.svg); }
 
 .footer__logos--socials-instagram {
+  -webkit-mask-image: url(../images/icon-instagram.svg);
   mask: url(../images/icon-instagram.svg); }
 
 .hero__info-heading {

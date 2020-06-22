@@ -96,8 +96,8 @@
 	&__content {
 		width: 100%;
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-		column-gap: 8rem;
+		grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+		column-gap: 6.5rem;
 		row-gap: 6rem;
 		& > * {
 			display: grid;
@@ -151,21 +151,26 @@
 			}
 		}
 		&-fb {
+			-webkit-mask-image: url(../images/icon-facebook.svg);
 			mask: url(../images/icon-facebook.svg);
 		}
 
 		&-youtube {
+			-webkit-mask-image: url(../images/icon-youtube.svg);
 			mask: url(../images/icon-youtube.svg);
 		}
 
 		&-twitter {
+			-webkit-mask-image: url(../images/icon-twitter.svg);
 			mask: url(../images/icon-twitter.svg);
 		}
 
 		&-pinterest {
+			-webkit-mask-image: url(../images/icon-pinterest.svg);
 			mask: url(../images/icon-pinterest.svg);
 		}
 		&-instagram {
+			-webkit-mask-image: url(../images/icon-instagram.svg);
 			mask: url(../images/icon-instagram.svg);
 		}
 	}

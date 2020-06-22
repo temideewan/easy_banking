@@ -29,6 +29,23 @@
 			.attribution a {
 				color: hsl(228, 45%, 44%);
 			}
+			.sticky {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				transform: translateY(7%);
+				height: 6.2rem;
+				box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.09);
+				transition: all 0.3s ease;
+			}
+			.active {
+				transform: translateY(0);
+			}
+			.inactive {
+				transform: translateY(-10px);
+				opacity: 0;
+			}
 		</style>
 	</head>
 	<body>
@@ -270,5 +287,110 @@
 				>Frontend Mentor</a
 			>. Coded by <a href="https://github.com/temideewan">Temidayo</a>.
 		</div>
+		<script>
+			// function debounce(func, wait = 20, immediate = true) {
+			// 	var timeout;
+			// 	return function () {
+			// 		var context = this,
+			// 			args = arguments;
+			// 		var later = function () {
+			// 			timeout = null;
+			// 			if (!immediate) func.apply(context, args);
+			// 		};
+			// 		var callNow = immediate && !timeout;
+			// 		clearTimeout(timeout);
+			// 		timeout = setTimeout(later, wait);
+			// 		if (callNow) func.apply(context, args);
+			// 	};
+			// }
+			function debounce(f, ms = 5) {
+				let isCooldown = false;
+
+				return function () {
+					if (isCooldown) return;
+
+					f.apply(this, arguments);
+
+					isCooldown = true;
+
+					setTimeout(() => (isCooldown = false), ms);
+				};
+			}
+			const nav = document.querySelector('.navigation');
+			const hero = document.querySelector('.hero');
+			const brandImage = document.querySelector('.navigation__brand--image');
+
+			const navBox = hero.getBoundingClientRect();
+			console.log(navBox);
+
+			const { y: topp, bottom: boxBottom } = navBox;
+			console.log(topp, boxBottom);
+
+			function handleScroll() {
+				// 1 determine the scroll of the page.
+				const scroll = window.scrollY;
+
+				//2 Determine a particular point where we want to effect changes
+				const scrollInAt = scroll > topp;
+				const disappearAt = scroll > boxBottom - 60;
+
+				if (scrollInAt) {
+					nav.classList.add('sticky');
+					nav.classList.remove('inactive');
+					setTimeout(() => {
+						nav.classList.add('active');
+					}, 300);
+				} else {
+					nav.classList.remove('sticky', 'active');
+					// nav.classList.remove('inactive');
+				}
+
+				//3 Determine where we want other changes to happen
+				if (disappearAt) {
+					nav.classList.add('inactive');
+				}
+			}
+
+			// function handleScroll() {
+			// 	const windowOffset = window.pageYOffset;
+			// 	const notScrolled = window.pageYOffset === 0;
+			// 	const enterAt = windowOffset > hero.clientHeight / 10 && !notScrolled;
+			// 	const heroPassed =
+			// 		windowOffset > hero.offsetTop + (hero.clientHeight - 20);
+
+			// 	brandImage.classList.remove('bolderImage');
+			// 	if (enterAt) {
+			// 		nav.classList.add('sticky');
+			// 		nav.classList.remove('inactive');
+			// 		brandImage.classList.add('bolderImage');
+
+			// 		setTimeout(() => {
+			// 			nav.classList.add('active');
+			// 		}, 300);
+			// 	} else {
+			// 		nav.classList.remove('sticky', 'active');
+			// 	}
+
+			// 	if (heroPassed) {
+			// 		brandImage.classList.remove('bolderImage');
+			// 		nav.classList.add('inactive');
+			// 	}
+			// }
+
+			window.addEventListener('scroll', debounce(handleScroll));
+
+			const arr = [];
+			function clipClip(e) {
+				const keyCode = e.keyCode || e.which;
+
+				if (keyCode === 67 && e.ctrlKey === true) {
+					const selectedText = window.getSelection().toString();
+					arr.push(selectedText);
+				}
+				console.log(arr);
+			}
+
+			window.addEventListener('keydown', clipClip);
+		</script>
 	</body>
 </html>
