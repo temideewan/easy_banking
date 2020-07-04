@@ -471,6 +471,9 @@ body {
 .testimonial__content-para {
   font-size: 1.6rem;
   color: #9698a6; }
+  @media only screen and (max-width: 37.5em) {
+    .testimonial__content-para {
+      width: 60%; } }
 
 .article__heading {
   font-size: 4.7rem;

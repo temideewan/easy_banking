@@ -59,6 +59,10 @@
 		&-para {
 			font-size: 1.6rem;
 			color: $color-grey-blue;
+
+			@include respond(phone) {
+				width: 60%;
+			}
 		}
 	}
 }
