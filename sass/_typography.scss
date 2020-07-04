@@ -1,11 +1,14 @@
 .hero__info {
+	@include respond(phone) {
+		text-align: center;
+	}
 	&-heading {
 		font-size: 7rem;
 		font-weight: 300;
 		color: $color-primary-blue;
 		box-decoration-break: clone;
-		width: 41%;
 		margin-bottom: 3.7rem;
+		width: 100%;
 	}
 	&-para {
 		color: $color-grey-blue;
@@ -13,11 +16,27 @@
 		width: 40%;
 		font-size: 2rem;
 		margin-bottom: 5rem;
+		width: 100%;
+
+		@include respond(tab-port) {
+			width: 60%;
+		}
+
+		@include respond(phone) {
+			width: 90%;
+		}
 	}
 }
 
 .testimonial {
+	@include respond(phone) {
+		text-align: center;
+	}
 	&__header {
+		@include respond(phone) {
+			width: 100%;
+			text-align: center;
+		}
 		&--heading {
 			color: $color-primary-blue;
 			font-size: 4.7rem;
@@ -26,6 +45,10 @@
 		}
 		&--para {
 			color: $color-grey-blue;
+
+			@include respond(phone) {
+				width: 100%;
+			}
 		}
 	}
 	&__content {

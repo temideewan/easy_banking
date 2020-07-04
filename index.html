@@ -58,6 +58,13 @@
 						alt="brand logo"
 					/>
 				</div>
+				<div class="navigation__mobile">
+					<img
+						class="navigation__mobile--icon"
+						src="./images/icon-hamburger.svg"
+						alt="mobile-navigation"
+					/>
+				</div>
 				<ul class="navigation__list">
 					<li class="navigation__list-item">
 						<a href="#" class="navigation__list-link">Home</a>
@@ -375,6 +382,31 @@
 			// }
 
 			// window.addEventListener('keydown', clipClip);
+
+			/**
+			 * Mobile Navigation
+			 */
+
+			// Select the hamburger and place a click event listener on it
+
+			const hamburger = document.querySelector('.navigation__mobile');
+
+			// Get the icon and it's source
+			const image = document.querySelector('.navigation__mobile--icon');
+			let imageSrc = image.src;
+
+			// Get the navigation list and add an animation to it
+			const navigationList = document.querySelector('.navigation__list');
+
+			hamburger.addEventListener('click', e => {
+				if (image.src === imageSrc) {
+					image.src = './images/icon-close.svg';
+					navigationList.classList.add('mobile-active');
+				} else {
+					image.src = imageSrc;
+					navigationList.classList.remove('mobile-active');
+				}
+			});
 		</script>
 	</body>
 </html>

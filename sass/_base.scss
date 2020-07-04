@@ -11,6 +11,15 @@
 }
 html {
 	font-size: 62.5%; // 10/16px = 0.625px = 62.5%.
+	@include respond(tab-land) {
+		font-size: 55.5%;
+	}
+	@include respond(thousand) {
+		font-size: 53.5%;
+	}
+	@include respond(tab-port) {
+		font-size: 51.5%;
+	}
 }
 
 body {
@@ -19,5 +28,3 @@ body {
 	box-sizing: border-box;
 	font-size: 1.8rem;
 }
-
-

@@ -8,6 +8,13 @@
 		[center-end] minmax(4rem, 1fr) [full-end];
 	grid-template-rows: 6rem calc(100vh - 6rem);
 	overflow: hidden;
+
+	@include respond(tab-land) {
+		grid-template-rows: 6rem;
+	}
+	@include respond(phone) {
+		grid-template-rows: 6rem;
+	}
 }
 .navigation {
 	background: $color-white;
@@ -19,6 +26,17 @@
 	justify-content: space-between;
 	position: relative;
 	z-index: 1000;
+
+	@include respond(tab-land) {
+		padding: 0 9rem;
+	}
+	@include respond(thousand) {
+		padding: 0 7rem;
+	}
+
+	@include respond(phone) {
+		padding: 0 3rem;
+	}
 }
 
 .hero {
@@ -26,10 +44,27 @@
 	grid-column: 1 / -1;
 	grid-row: 2 / 3;
 
-	padding-left: 12rem;
+	padding: 0 12rem;
 	display: flex;
+	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
+
+	@include respond(tab-land) {
+		padding: 0 9rem;
+	}
+	@include respond(thousand) {
+		padding: 0 7rem;
+	}
+	@include respond(tab-port) {
+		padding: 0 4rem 5rem;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	@include respond(phone) {
+		padding: 0 2rem;
+	}
 }
 
 .testimonial {
@@ -39,16 +74,41 @@
 	display: flex;
 	flex-wrap: wrap;
 	padding: 8rem 12rem;
+
+	@include respond(tab-land) {
+		padding: 6rem 9rem;
+	}
+	@include respond(tab-land) {
+		padding: 4.5rem 7rem;
+	}
+
+	@include respond(tab-port) {
+		padding: 4.5rem 6rem;
+	}
+
+	@include respond(phone) {
+		padding: 4.5rem 3rem;
+	}
 }
 
 .articles {
 	background-color: $color-grey-light;
 	grid-column: 1 / -1;
 	grid-row: 4 / 5;
-
 	display: flex;
 	flex-direction: column;
 	padding: 8rem 12rem;
+
+	@include respond(tab-land) {
+		padding: 6rem 9rem;
+	}
+	@include respond(tab-land) {
+		padding: 4.5rem 7rem;
+	}
+
+	@include respond(tab-port) {
+		padding: 3.5rem 4rem;
+	}
 }
 
 .article {
@@ -60,7 +120,7 @@
 		width: 100%;
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-		gap: 3rem;
+		gap: 5rem;
 	}
 }
 
@@ -74,10 +134,34 @@
 	grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
 	column-gap: 5rem;
 	align-items: center;
+
+	@include respond(tab-land) {
+		padding: 3.5rem 9rem 2rem;
+	}
+	@include respond(tab-land) {
+		padding: 2.5rem 7rem 1.5rem;
+	}
+
+	@include respond(tab-port) {
+		grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+		padding: 2rem 4rem 1.5rem;
+	}
+	@include respond(phone) {
+		grid-template-columns: 1fr;
+		padding: 2.5rem 4rem 1.5rem;
+		place-items: center;
+		text-align: center;
+	}
+
 	&__logos {
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
+
+		@include respond(phone) {
+			width: 100%;
+			align-items: center;
+		}
 		& > *:not(last-child) {
 			margin-bottom: 3.8rem;
 			margin-top: 2.8rem;
@@ -93,6 +177,11 @@
 		flex-wrap: wrap;
 		width: 100%;
 		align-items: center;
+
+		@include respond(phone) {
+			flex-direction: column;
+			align-items: center;
+		}
 		& > * {
 			flex: 0 0 50%;
 			margin-bottom: 1.8rem;
@@ -106,6 +195,12 @@
 		flex-direction: column;
 		align-items: flex-end;
 		justify-content: center;
+
+		@include respond(phone) {
+			justify-self: center;
+			align-items: center;
+			justify-content: center;
+		}
 		& > * {
 			margin-bottom: 4.2rem;
 		}

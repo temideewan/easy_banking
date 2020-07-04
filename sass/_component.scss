@@ -2,14 +2,44 @@
 	font-size: 1.5rem;
 	font-weight: 300;
 
+	@include respond(phone) {
+		position: relative;
+	}
+
+	&__cta {
+		@include respond(phone) {
+			display: none;
+		}
+	}
+
 	&__list {
 		display: flex;
 		list-style-type: none;
 		font-size: 1.6rem;
+		@include respond(phone) {
+			background: rgba(255, 255, 255, 0.95);
+			opacity: 0;
+			flex-direction: column;
+			position: absolute;
+			bottom: -220px;
+			left: 50%;
+			transform: translate(-50%, -10%);
+			width: 75%;
+			padding: 1.8rem 3rem;
+			transition: background 0.3s ease, transform 0.4s ease-in-out 0.01s,
+				opacity 0.3s ease-in-out;
+			box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.3);
+		}
 		&-item {
+			font-size: 1.8rem;
 			&:not(last-child) {
 				margin-right: 3rem;
 				position: relative;
+
+				@include respond(phone) {
+					margin-right: 0;
+					margin-bottom: 2.3rem;
+				}
 			}
 			&::after {
 				content: '';
@@ -22,10 +52,16 @@
 				transform: scaleX(0);
 				background-color: $color-primary-green;
 				transition: all 0.3s ease;
+
+				@include respond(phone) {
+					bottom: -0.75rem;
+					width: 20%;
+				}
 			}
 		}
 		&-item:hover::after {
 			transform: scaleX(1);
+			transform-origin: right;
 		}
 
 		&-link:link,
@@ -36,6 +72,14 @@
 		&-link:hover,
 		&-link:active {
 			color: $color-primary-blue;
+		}
+	}
+
+	&__mobile {
+		display: none;
+
+		@include respond(phone) {
+			display: block;
 		}
 	}
 }
@@ -66,23 +110,56 @@
 	// flex: 0 0 50%;
 	position: relative;
 	&__info {
+		transform: translateY(-50px);
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-start;
 		align-items: flex-start;
+		flex: 0 0 40%;
+
+		@include respond(tab-land) {
+			flex: 0 1 35%;
+		}
+		@include respond(tab-port) {
+			z-index: 350;
+		}
+
+		@include respond(phone) {
+			align-items: center;
+		}
 	}
 	&__img {
 		background-image: url(../images/bg-intro-desktop.svg);
-		background-size: 120%;
+		background-size: 130%;
 		height: 100%;
 		background-position: top;
-		position: absolute;
-		top: -110px;
-		right: -130px;
+		// position: absolute;
+		// top: -110px;
+		// right: -130px;
+		transform: translate(130px, -110px);
 		z-index: 300;
+
+		@include respond(tab-port) {
+			background-size: 150%;
+			transform: translate(0, -220px);
+			display: flex;
+			justify-content: center;
+			order: -1;
+		}
+
+		@include respond(phone) {
+			transform: translate(0, -133px);
+			background-position: 37% 100%;
+		}
 
 		img {
 			z-index: 300;
+			object-fit: cover;
+
+			@include respond(phone) {
+				width: 100%;
+				height: 100%;
+			}
 		}
 	}
 }
@@ -96,13 +173,17 @@
 	&__content {
 		width: 100%;
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 		column-gap: 6.5rem;
 		row-gap: 6rem;
 		& > * {
 			display: grid;
 			grid-template-rows: repeat(3, min-content);
 			row-gap: 3rem;
+
+			@include respond(phone) {
+				place-items: center;
+			}
 		}
 	}
 }
@@ -140,8 +221,8 @@
 	&--socials {
 		& > * {
 			display: block;
-			width: 2rem;
-			height: 2rem;
+			width: 2.3rem;
+			height: 2.2rem;
 			background-color: white;
 			&:hover {
 				background-color: $color-primary-green;
@@ -174,4 +255,9 @@
 			mask: url(../images/icon-instagram.svg);
 		}
 	}
+}
+
+.mobile-active {
+	opacity: 1;
+	transform: translateX(-50%) translateY(0);
 }
